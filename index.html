@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+		<html>
+		<head>
+			<meta charset="utf-8">
+			<title>Ameya Kshirsagar</title>
+		
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+		<style>
+			.aside .logo a::before{
+				border-top: 4px solid #ec1839;
+				border-left: 4px solid #ec1839;
+			}
+			.aside .logo a::after{
+				border-bottom: 4px solid #ec1839;
+				border-right:  4px solid #ec1839;
+			}
+			 
+			.contact .contact-info-item .icon .fa,
+			.blog .blog-item-inner .blog-info .blog-tags a,
+			
+			.aside .nav li a:hover,
+			.service .service-item .service-item-inner .icon .fa,
+			.about .about-content .about-text h3 span,
+				.aside .nav li a.active
+			{
+				color: #00ff22;
+			}
+			.blog .blog-item-inner .blog-img .blog-date,
+			.service .service-item .service-item-inner:hover .icon .fa,
+			.about .about-content .timeline .circle-dot,
+			.about .about-content .timeline .timeline-item::before,
+			.aside .nav-toggler span,
+			.btn,.about .about-content .skills .skill-item .progress .progress-in,
+			.aside .nav-toggler span::before
+				,.aside .nav-toggler span::after,
+				.section-title h2::before,
+				.section-title h2::after,
+				.home .intro .social-links a{
+					background-color: #ec1839;
+				}
+				.btn{
+					background-color: #068b7a;
+				}
+				
+		
+		
+		@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+		/*General Style*/
+		body{
+			margin: 0;
+			line-height: 1.5;
+			font-size: 16px;
+			font-family: 'Poppins', sans-serif;
+			font-weight: 400;
+		}
+		*{
+			margin: 0;
+			padding: 0;
+			outline: none;
+			text-decoration: none;
+			box-sizing: border-box;
+		}
+		::before,::after{
+			box-sizing: border-box;
+			}
+		input,textarea,select{
+			font-family: 'Poppins', sans-serif;
+		}	
+		.section{
+			background-color: #131315;
+			min-height: 100vh;
+			display: block;
+			padding: 0 30px;
+			position: fixed;
+			left: 270px;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 0;
+			opacity:1; 
+			overflow-x:hidden;
+			overflow-y:auto; 
+			-webkit-transition:all 03s ease;
+			transition: all 0.3s ease;
+		}
+		.section.back-section{
+			z-index: 1;
+		}
+		.section.active{
+			opacity: 1;
+			z-index: 2;
+			-webkit-animation: slideSection 1s ease;
+			animation: slideSection 1s ease;
+		}
+		@-webkit-keyframes slideSection{
+			0%{
+				-webkit-transform:translateX(100%);
+				transform: translateX(100%);
+			}
+			100%{
+				-webkit-transform:translateX(0%);
+				transform: translateX(0%);
+			}
+		}
+		@keyframes slideSection{
+			0%{
+				-webkit-transform:translateX(100%);
+				transform: translateX(100%);
+			}
+			100%{
+				-webkit-transform:translateX(0%);
+				transform: translateX(0%);
+			}
+		}
+		.section.container{
+			padding-top: 60px;
+			padding-bottom: 70px;
+		
+		}
+		.section-title{
+			-ms-flex:0 0 100%;
+			flex: 0 0 100%;
+			max-width: 100%;
+			margin-bottom: 60px;
+		}
+		.section-title h2{
+			font-size: 40px;
+			color:#fbf3f4;
+			font-family: 'Suez One', serif;
+			font-weight: 700;
+			margin: 0;
+			position: relative;
+		}
+		.section-title h2::before{
+			content: '';
+			height:4px;
+			width: 60px;
+			position: absolute;
+			top: 100%;
+			left: 0;
+		}
+		.section-title h2::after{
+			content: '';
+			height:4px;
+			width: 40px;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			margin-top:8px;
+		}
+		.row{
+			display: flex;
+			display: -ms-flexbox;
+			-ms-flex-wrap:wrap;
+			flex-wrap: wrap;
+			margin-right: -15px;
+			margin-left: -15px;
+			position: relative;
+		}
+		.padd-15{
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+		/*.main-content{
+			padding-left: 270px;
+		}*/
+		.container{
+			max-width: 1100px;
+			margin: auto;
+			width: 100%;
+		}
+		.shadow-dark{
+			-webkit-box-shadow: 0 0 20px rgba(48,46,77,8.15);
+			box-shadow: 0 0 20px rgba(48,46,77,8.15);
+		}
+		.btn{
+			font-size: 16px;
+			font-family: 'Suez One', serif;
+			font-weight: 500;
+			padding: 12px 35px;
+			color: #ffffff;
+			border-radius: 40px;
+			-webkit-transition: all 0.3s ease;
+			transition: all 0.3s ease;
+			display: inline-block;
+			white-space: nowrap;
+			border:none;
+			cursor: pointer;
+		}
+		.btn:hover{
+			-webkit-transform: scale(1.1);
+			transform: scale(1.1);
+		}
+		.hidden{
+			display: none!important;
+		}
+		/*Aside*/
+		.aside{
+			width: 270px;
+			background-color: #3b3a3c;
+			position: fixed;
+			height: 100%;
+			left: 0;
+			top: 0;
+			z-index: 10;
+			border-right: 1px solid #e8dfec;
+			padding: 30px;
+		   -webkit-transition:all 03s ease;
+			transition: all 0.3s ease;
+		}
+		.aside .logo{
+			padding:30px 0;
+			
+		}
+		.aside .logo a{
+			font-size: 40px;
+			color:#53b3f7;
+			font-family: 'Suez One', serif;
+			font-weight: 700;
+			text-decoration: none;
+			display: inline-block;
+			position: relative;
+			padding: 0 10px;
+			line-height: 50px;
+		
+		}
+		.aside .logo a::before{
+			content: '';
+			height:20px;
+			width: 20px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		
+		}
+		.aside .logo a::after{
+			content: '';
+			height:20px;
+			width: 20px;
+			position: absolute;
+			bottom:0;
+			right:  0;
+		}
+		.aside .nav-toggler{
+			height: 40px;
+			width: 40px;
+			border:1px solid #d4d4e3;
+			position: fixed;
+			cursor: pointer;
+			left:300px;
+			top: 20px;
+			z-index: 11;
+			border-radius: 5px;
+			background-color: #fdf9ff;
+		   /* display: -ms-flexbox;
+			display: flex;*/
+			display: none;
+			-ms-flex-align:center;
+			align-items: center;
+			-ms-flex-pack:center;
+			justify-content: center;
+			-webkit-transition:all 03s ease;
+			transition: all 0.3s ease;
+		}
+		.aside .nav-toggler span{
+			height: 2px;
+			width: 18px;
+			display: inline-block;
+			position: relative;
+		}
+		.aside .nav-toggle.open span{
+			background-color: transparent;
+			
+		}
+		
+		.aside .nav-toggler.open span::before{
+			-webkit-transform:rotate(45deg);
+			transform: rotate(45deg);
+			top: 0px;
+		}
+		
+		.aside .nav-toggler span::before{
+		content: '';
+		height: 2px;
+		width: 18px;
+		position: absolute;
+		top: -6px;
+		left: 0;
+		}
+		.aside .nav-toggler span::after{
+		content: '';
+		height: 2px;
+		width: 18px;
+		position: absolute;
+		top: 6px;
+		left: 0;
+		}
+		.aside .nav-toggle.open span::after{
+			-webkit-transform:rotate(-45deg);
+			transform: rotate(-45deg);
+			top: 0px;
+		}
+		.aside .nav{
+		
+			list-style:none;
+			margin:80px 0; 
+			padding: 0;
+		}
+		.aside .nav li{
+			display: block;
+		}
+		.aside .nav li a{
+			font-weight: 600;
+			font-size: 16px;
+			color: #fdf9ff;
+			text-decoration: none;
+			line-height: 45px;
+			display: block;
+			border-bottom: 1px solid #e8dfec;
+			transition: all 0.3s ease;
+			text-transform: capitalize;
+		}
+		.aside .nav li a:not(.active):hover{
+			padding-left: 5px;
+		}
+		.aside .nav li a .fa{
+			margin-right: 5px;
+		}
+		.aside .copyright-text{
+			font-size: 13px;
+			color: #e8dfec;
+		}
+		
+		/*home*/
+		.home{
+			min-height:100vh;
+			display: -ms-flexbox;
+			display: flex;
+		}
+		.home .intro{
+			text-align: center;
+		}
+		.home .intro img{
+			height: 300px;
+			width: 300px;
+			border-radius: 50%;
+			display: inline-block;
+			border:8px solid #ffffff;
+		}
+		.home .intro h1{
+			font-size: 30px;
+			color:#eee;
+			font-family: 'Suez One', serif;
+			font-weight: 700;
+			margin: 20px 0 5px;
+		}
+		.home .intro p{
+			font-size: 16px;
+			font-weight: 500;
+			margin: 0;
+			line-height: 22px;
+			color:#06e8f0;
+		}
+		.home .intro .social-links{
+			margin-top: 25px;
+		}
+		.home .intro .social-links a{
+			height: 35px;
+			width: 35px;
+			display: inline-block;
+			text-align: center;
+			margin: 0 4px;
+			line-height: 35px;
+			color: #ffffff;
+			border-radius: 50%;
+			text-decoration: none;
+			-webkit-transition:all 0.3s ease;
+			transition: all 0.3s ease;
+		
+		}
+		.home .intro .social-links a:hover{
+			-webkit-transform:scale(1.1);
+			transform: scale(1.1);
+		}
+		/*about*/
+		.about .about-content{
+			-ms-flex:0 0 100%;
+			flex:0 0 100%;
+			max-width: 100%;
+		}
+		.about .about-content .about-text{
+			-ms-flex:0 0 100%;
+			flex:0 0 100%;
+			max-width: 100%;
+		}
+		.about .about-content .about-text h3{
+			font-size: 24px;
+			margin-top: 15px;
+			font-weight: 700;
+			color: #eee;
+		}
+		.about .about-content .about-text p{
+			font-size:16px;
+			line-height: 25px;
+			color: #1dc8f3;
+			margin: 0;
+		
+		}
+		.about .about-content .personal-info{
+			-ms-flex:0 0 60%;
+			flex: 0 0 60%;
+			max-width: 60%;
+			margin-top: 40px;
+		}
+		.about .about-content .personal-info .info-item{
+		-ms-flex:0 0 50%;
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+		.about .about-content .personal-info .info-item p{
+		font-weight: 600;
+		padding: 10px 0;
+		font-size: 16px;
+		color: #eee;
+		margin: 0;
+		border-bottom: 1px solid #e8dfec;
+		
+		}
+		.about .about-content .personal-info .info-item p span{
+			font-weight: bold;
+			color: #ff0ad6;
+			margin-left: 4px;
+		}
+		.about .about-content .personal-info .buttons{
+			margin-top: 30px;
+		}
+		.about .about-content .personal-info .buttons .btn{
+			margin-right: 15px;
+			margin-top: 10px;
+		}
+		.about .about-content .skills{
+		-ms-flex:0 0 40%;
+			flex: 0 0 40%;
+			max-width: 40%;
+			margin-top: 40px;
+		}
+		.about .about-content .skills .skill-item{
+		-ms-flex:0 0 100%;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		.about .about-content .skills .skill-item h5{
+			line-height: 40px;
+			font-weight: 600;
+			font-size: 16px;
+			color: #eee;
+			text-transform: capitalize;
+			margin: 0;
+		}
+		.about .about-content .skills .skill-item .progress{
+			background-color: #e3e3e3;
+			height: 8px;
+			border-radius: 4px;
+			width: 100%;
+			position: relative;
+		}
+		.about .about-content .skills .skill-item{
+			margin-bottom: 30px;
+		}
+		.about .about-content .skills .skill-item .progress .progress-in{
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			border-radius: 4px;
+		}
+		.about .about-content .skills .skill-item .skill-percent{
+			line-height: 40px;
+			position: absolute;
+			right: 0;
+			top: -40px;
+			font-weight: 400;
+			color: #eee;
+		
+		}
+		.about .about-content .education{
+		-ms-flex:0 0 50%;
+			flex: 0 0 50%;
+			max-width: 50%;
+			margin-top: 30px;
+		}
+		.about .about-content .exprience{
+			-ms-flex:0 0 50%;
+			flex: 0 0 50%;
+			max-width: 50%;
+			margin-top: 30px;
+		}
+		.about .about-content h3.title{
+			font-size: 24px;
+			font-weight: 700;
+			color: #fbf3f4;
+			margin-bottom: 30px;
+		}
+		.about .about-content .timeline-box{
+			-ms-flex:0 0 100%;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		.about .about-content .timeline{
+		background-color: #131315;
+		padding: 30px 15px;
+		border:1px solid #d4d4e3;
+		border-radius: 10px;
+		position: relative;
+		}
+		.about .about-content .timeline .timeline-item{
+			position: relative;
+			padding-left: 37px;
+			padding-bottom: 50px;
+		}
+		.timeline-item p{
+			font-size: 16px;
+			line-height: 25px;
+			color: #f7fcf7;
+			margin: 0;
+		}
+		.about .about-content .timeline .timeline-item::before{
+			content: '';
+			width: 1px;
+			position: absolute;
+			height: 100%;
+			left: 0;
+			top: 0;
+		}
+		.about .about-content .timeline .circle-dot{
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 15px;
+		width: 15px;
+		left: -7px;
+		border-radius: 50%;
+		}
+		.about .about-content .timeline .timeline-date{
+		font-weight: 400;
+		font-size: 14px;
+		margin-bottom: 12px;
+		color: #fdf590;
+		}
+		.about .about-content .timeline .timeline-date .fa{
+			margin-right: 5px;
+		}
+		.about .about-content .timeline .timeline-title{
+		font-weight: 700;
+		font-size: 18px;
+		margin-bottom: 15px;
+		text-transform: capitalize;
+		color:#fdf9ff;
+		}
+		.about .about-content .timeline .timeline-text{
+		font-size: 16px;
+		line-height: 25px;
+		color: #53b3f7;
+		margin: 0;
+		}
+		/*Service*/
+		.service .container{
+			padding-bottom: 40px;
+		}
+		.service .service-item{
+		margin-bottom: 30px;
+		-ms-flex:0 0 33.33%;
+		flex: 0 0 33.33%;
+		max-width: 33.33%;
+		}
+		.service .service-item .service-item-inner{
+		background-color: #131315;
+		border:1px solid #d4d4e3;
+		border-radius: 10px;
+		padding: 30px 15px;
+		text-align: center;
+		-webkit-transition: all 0.3s ease;
+			transition: all 0.3s ea
+		}
+		.service .service-item .service-item-inner:hover{
+			-webkit-box-shadow: 0 0 20px rgba(48,46,77,8.15);
+			box-shadow: 0 0 20px rgba(48,46,77,8.15);
+		
+		}
+		.project-button{
+			position:absolute;
+		}
+		.service .service-item .service-item-inner h4{
+			font-size: 16px;
+			margin-bottom: 15px;
+			color: #eee;
+			font-weight: 700;
+			text-transform: capitalize;
+		}
+		.service .service-item .service-item-inner p{
+			font-size: 16px;
+			color: #f5a511;
+			line-height:25px; 
+			margin: 0;
+		}
+		
+		/*start blog*/
+		
+		.certi_data{
+			margin:5px;
+			display:flexbox;
+			background:#fff;
+			box-shadow: 0px 0px 10px #25ffff;
+			border-radius: 10px;
+		
+		}
+		.skills__names{
+		  align-items: center;
+		  padding:4px;
+		}
+		.skills__name{
+			font-weight:bold;
+			margin-left:5px;
+		}
+		.blog .container{
+			padding-bottom: 30px;
+		}
+		.blog .blog-item{
+			flex: 0 0 33.33%;
+			max-width: 33.33%;
+		}
+		.blog .blog-item-inner{
+			border-radius: 10px;
+			overflow: hidden;
+			border:1px solid #d4d4e3;
+		}
+		.blog .blog-item-inner .blog-img{
+			position: relative;
+			overflow: hidden;
+		}
+		.blog .blog-item-inner .blog-img img{
+			width: 100%;
+			display: block;
+			-webkit-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+		}
+		.blog .blog-item-inner:hover .blog-img img{
+			-webkit-transform: scale(1.1); 
+			transform: scale(1.1); 
+		}
+		.blog .blog-item-inner .blog-img .blog-date{
+			position: absolute;
+			padding: 4px 10px;
+			border-radius: 5px;
+			color: #ffffff;
+			font-weight: 600;
+			font-size: 14px;
+			left: 15px;
+			bottom: 15px;
+		}
+		.blog .blog-item-inner .blog-info{
+			padding:30px 15px;
+			background-color: #131315;
+		}
+		.blog .blog-item-inner .blog-info .blog-title{
+			font-size: 18px;
+			font-weight: 700;
+			color: #eee;
+			text-transform: capitalize;
+			margin-bottom: 10px;
+		}
+		.blog .blog-item-inner .blog-info .blog-description{
+			font-size: 16px;
+			line-height: 25px;
+			color:#1164c4;
+			font-weight: 400;
+			margin-bottom: 15px;
+		
+		}
+		.blog .blog-item-inner .blog-info .blog-tags{
+			font-size: 14px;
+			line-height: 25px;
+			color: #eee;
+			font-weight: 400;
+			text-transform: capitalize;
+		}
+		.blog .blog-item-inner .blog-info .blog-tags a{
+			text-decoration:none;
+			font-weight:600;
+		}	
+		/*contact section*/
+		.contact .contact-info-item{
+			-ms-flex:0 0 33.33%;
+			flex: 0 0 33.33%;
+			max-width: 33.33%;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+		.contact .contact-info-item .icon{
+			display: inline-block;
+		}
+		.contact .contact-info-item .icon .fa{
+			font-size: 40px;
+		}
+		.contact .contact-info-item h4{
+			font-weight: 700;
+			font-size: 18px;
+			color: #fbf3f4;
+			text-transform: capitalize;
+			margin:15px 0 5px;
+		}
+		.contact .contact-info-item p{
+			font-size: 16px;
+			line-height: 25px;
+			color: #f106d2;
+			margin: 0;
+			font-weight: 400;
+		}
+		.contacts{
+			max-width: 100%;
+			width: 100%;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+		.contacts .social-links a{
+			height: 35px;
+			width: 35px;
+			display: inline-block;
+			text-align: center;
+			background:#d3088f;
+			margin: 4px 4px;
+			line-height: 35px;
+			color: #ffffff;
+			border-radius: 50%;
+			text-decoration: none;
+			-webkit-transition:all 0.3s ease;
+			transition: all 0.3s ease;
+		
+		}
+		.contacts .social-links a:hover{
+			-webkit-transform:scale(1.1);
+			transform: scale(1.1);
+			background:#d36308;
+		}
+		
+		.contact .contact-form{
+			-ms-flex:0 0 100%;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		.contact .contact-form .col-6{
+			-ms-flex:0 0 50%;
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+		.contact .contact-form .col-12{
+			-ms-flex:0 0 100%;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		.contact .contact-form .form-item{
+			margin-bottom: 30px;
+		}
+		.contact .contact-form .form-item .form-control{
+			width: 100%;
+			border-radius: 25px;
+			height: 50px;
+			border:1px solid #d4d4e3;
+			padding: 10px 25px;
+			font-size: 16px;
+			color: #504e70;
+			-webkit-transition: all 0.3s ease;
+			transition: all 0.3s ease;
+			background-color: #131315;
+		}
+		.contact .contact-form .form-item .form-control:focus{
+			-webkit-box-shadow: 0 0 20px rgba(48,46,77,0.15);
+			box-shadow: 0 0 20px rgba(48,46,77,0.15);
+		}
+		.contact .contact-form .form-item textarea.form-control{
+			height: 120px;
+		
+		}
+		.cntact .contact-form .btn{
+			height: 50px;
+			padding: 0 50px;
+		}
+		
+		
+		/*MEDIA Queary*/
+		@media(max-width: 1199px)
+		{
+			.section .container{
+				padding-top:70px;
+			}
+			.aside .nav-toggler{
+				display: -ms-flexbox;
+				display: flex;
+				left: 30px;
+			}
+			.aside{
+				left:-270px;
+			}
+			.aside .nav-toggler.open{
+				left: 300px;
+			}
+			.aside.open{
+				left: 0px;
+			}
+			.section{
+				left: 0;
+			}
+			.section.open{
+				left: 270px;
+			}
+			.main-content{
+				padding-left: 0;
+			}
+			.about .about-content .personal-info .info-item p span{
+				display: block;
+				margin-left: 0;
+			}
+		}
+		@media(max-width: 991px){
+			.blog .blog-item,
+			.service .service-item{
+			   -ms-flex:0 0 50%;
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+		}
+		@media(max-width: 767px){
+			.contact .contact-form .col-6,
+			.blog .blog-item,
+			.service .service-item,
+			.about .about-content .exprience,
+			.about .about-content .education,
+			.about .about-content .skills,
+			.about .about-content .personal-info{
+				-ms-flex:0 0 100%;
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+		}
+		@media(max-width: 575px)
+		{
+			.contact .contact-info-item{
+				-ms-flex: 0 0 100%;
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+		}
+		
+		
+		</style>
+		</head>
+		<body>
+		<div class="aside">
+			<!--logo-->
+			<div class="logo">
+				<a href="#home">Ameya</a>
+			</div>
+			<div class="nav-toggler">
+				<span></span>
+			</div>
+			<ul class="nav">
+				<li><a href="#home" class="active"><i class="fa fa-home"></i>Home</a></li>
+				<li><a href="#about"><i class="fa fa-user"></i>About</a></li>
+				<li><a href="#project"><i class="fa fa-list"></i>Project</a></li>
+				<li><a href="#blog"><i class="fa fa-envelope"></i>Research work</a></li>
+				<li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
+			</ul>
+			<!--copyright-->
+			<div class="copyright-text">@copy; 2021 Ameya Kshirsagar
+				
+			</div>
+		</div>
+		<!--Aside End-->
+		<!--main content-->
+		<div class="main-content show">
+			<section class="home section active" id="home">
+				<div class="container">
+					<div class="intro">
+						<img src="https://i.postimg.cc/4NDVMWWj/me.png" alt="Profile Image" class="shadow-dark">
+						<h1>Ameya Kshirsagar</h1>
+						<p id="typing"></p>
+						<div class="social-links">
+							
+							<a href="https://www.linkedin.com/in/https://www.linkedin.com/in/ameya-kshirsagar" ><i class="fa fa-linkedin" ></i></a>
+							
+							
+							
+							<a href="https://github.com/https://github.com/ameyark28/" ><i class='fa fa-github' ></i></a>
+							
+							
+							 <a href="https://twitter.com/https://twitter.com/ameya_rk"><i class='fa fa-twitter'></i></a>
+							 
+							 
+							 <a href="https://www.instagram.com/https://www.instagram.com/ameya_kshirsagar/"><i class='fa fa-instagram'></i></a>
+							
+							<a href="https://scholar.google.com/citations?user=17dvamEAAAAJ&hl=en"><b>GS</b><i class='fa fa-googelscholar'></i></a>
+							 
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--About-->
+			<section class="about section" id="about">
+				<div class="container">
+					<div class="row">
+						<div class="section-title padd-15">
+							<h2>About Ameya Kshirsagar</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="about-content padd-15">
+							<div class="row">
+								<div class="about-text padd-15">
+									<h3></h3>
+										<p style="text-align:justify">Ameya Kshirsagar is a B.Tech in Information Technology graduate from Symbiosis Institute of Technology with gusto to discover value-added aspects of Computer Science and Data Science, competency to take on every learning challenge. His research interest lies in NLP  and machine learning applications for interdisciplinary applications ranging from finance, Healthcare, Environment, petroleum, and sports.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="personal-info padd-15">
+									<div class="row">
+										<div class="info-item padd-15">
+											<p>Email:<span>ameyark28@gmail.com</span></p>
+										</div>
+										<div class="info-item padd-15">
+											<p>Degree:<span>Bachelor of Technology</span></p>
+										</div>
+										<div class="info-item padd-15">
+											<p>Phone:<span>:D</span></p>
+										</div>
+										<div class="info-item padd-15">
+											<p>City:<span>Mumbai</span></p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="buttons padd-15">
+											<a href="https://drive.google.com/file/d/1slmo5RdX_Eitf7tBiPgBL96iQ0Fz8eAS/view"class="btn">CV</a>
+											
+										</div>
+									</div>
+								</div>
+								<div class="skills padd-15">
+									<h3 style="color:#fff;">Skills</h3>
+									<div class="row">
+										
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name"> Python (Programming Language)</span>
+											</div>
+										</div>
+											
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name">  C++</span>
+											</div>
+										</div>
+											
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name">  Machine Learning</span>
+											</div>
+										</div>
+											
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name">  Data Science</span>
+											</div>
+										</div>
+											
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name">  Artificial Intelligence (AI)</span>
+											</div>
+										</div>
+											
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name">  Research</span>
+											</div>
+										</div>
+											
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name">  Deep Learning</span>
+											</div>
+										</div>
+											
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name">  Data Analysis</span>
+											</div>
+										</div>
+											
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name">  Natural Language Processing (NLP)</span>
+											</div>
+										</div>
+											
+										<div class="certi_data padd-15">
+											<div class="skills__names">
+												<span class="skills__name">  Mendeley</span>
+											</div>
+										</div>
+											
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+						<div class="section-title padd-15">
+							<h2>Certifications</h2>
+						</div>
+					</div>
+					<div class="row">
+						
+						
+						<div class="certi_data padd-15">
+							<div class="skills__names">
+								<img src="https://img.icons8.com/fluent/24/000000/contract.png"/>
+								<span class="skills__name"> The Science of Success: What Researchers Know that You Should Know</span>
+								<span style="margin-left:10px;"><a href="https://www.coursera.org/account/accomplishments/certificate/6GHPHZ52X6NK">Verify</a></span>
+							</div>
+						</div>
+						
+						
+						
+						<div class="certi_data padd-15">
+							<div class="skills__names">
+								<img src="https://img.icons8.com/fluent/24/000000/contract.png"/>
+								<span class="skills__name"> Introduction to Google SEO</span>
+								<span style="margin-left:10px;"><a href="https://www.coursera.org/account/accomplishments/certificate/FBY5EEU45FXD">Verify</a></span>
+							</div>
+						</div>
+						
+						
+						
+						<div class="certi_data padd-15">
+							<div class="skills__names">
+								<img src="https://img.icons8.com/fluent/24/000000/contract.png"/>
+								<span class="skills__name"> Machine Learning</span>
+								<span style="margin-left:10px;"><a href="https://www.coursera.org/account/accomplishments/certificate/QAGW5NFM3P2V">Verify</a></span>
+							</div>
+						</div>
+						
+						
+						
+						<div class="certi_data padd-15">
+							<div class="skills__names">
+								<img src="https://img.icons8.com/fluent/24/000000/contract.png"/>
+								<span class="skills__name">  Introduction to AWS Identity and Access Management</span>
+								<span style="margin-left:10px;"><a href="https://www.coursera.org/account/accomplishments/certificate/3TVYBHQ7JKET">Verify</a></span>
+							</div>
+						</div>
+						
+						
+						
+						<div class="certi_data padd-15">
+							<div class="skills__names">
+								<img src="https://img.icons8.com/fluent/24/000000/contract.png"/>
+								<span class="skills__name"> Understanding the Impact of Deepfake Videos</span>
+								<span style="margin-left:10px;"><a href="https://www.linkedin.com/learning/understanding-the-impact-of-deepfake-videos">Verify</a></span>
+							</div>
+						</div>
+						
+						
+					</div>
+					
+		
+					
+					<div class="row">
+						<div class="section-title padd-15">
+							<h2>Achievements and Awards</h2>
+						</div>
+					</div>
+					<div class="row">
+						
+						
+						<div class="certi_data padd-15">
+							<div class="skills__names">
+								<img src="https://img.icons8.com/color/24/000000/medal.png"/>
+								<span class="skills__name"> Pro-Tech 2020 National Project Exhibition</span>
+							</div>
+						</div>
+						
+						
+						
+						<div class="certi_data padd-15">
+							<div class="skills__names">
+								<img src="https://img.icons8.com/color/24/000000/medal.png"/>
+								<span class="skills__name">  Distinction - Science</span>
+							</div>
+						</div>
+						
+						
+						
+						<div class="certi_data padd-15">
+							<div class="skills__names">
+								<img src="https://img.icons8.com/color/24/000000/medal.png"/>
+								<span class="skills__name">  1st Open State Level Martial Art Championship</span>
+							</div>
+						</div>
+						
+						
+						
+						<div class="certi_data padd-15">
+							<div class="skills__names">
+								<img src="https://img.icons8.com/color/24/000000/medal.png"/>
+								<span class="skills__name">  Maharashtra State Level Karate Championship</span>
+							</div>
+						</div>
+						
+						
+					</div>
+								
+								<div class="row">
+								<div class="education padd-15">
+									<h3 class="title">Education</h3>
+									<div class="row">
+										<div class="timeline-box padd-15">
+										<div class="timeline shadow-dark">
+											
+											<div class="timeline-item">
+												<div class="circle-dot">
+												</div>
+												<h6 class="timeline-date">
+													
+													<i class="fa fa-calendar"></i>2016-2020
+													
+												</h6>
+												
+												<h4 class="timeline-title">Bachelor of Technology in <strong>Information Technology</strong></h4>
+												
+												<h6 class="timeline-text"><i>Symbiosis Institute of Technology, Symbiosis International University</i></h6>
+												<p> ● Member of Google Developer Student Club. <br>  ● Feliciated at ProTech 2020<br>  ● Student Mentor.</p>
+												
+											</div>
+											
+											
+											
+		
+											
+		
+		
+										</div>
+									</div>
+									</div>
+							</div>
+							
+							<div class="exprience padd-15">
+									<h3 class="title">Experience</h3>
+									<div class="row">
+										<div class="timeline-box padd-15">
+										<div class="timeline shadow-dark">
+											
+											<div class="timeline-item">
+												<div class="circle-dot">
+												</div>
+												<h6 class="timeline-date">
+													
+													<i class="fa fa-calendar"></i>May 2020 – Present
+													
+												</h6>
+												
+												<h4 class="timeline-title">Research executive</h4>
+												
+												
+												<b class="timeline-text"></b>
+												
+												
+												<h6 class="timeline-text"><i>Pandit Deendayal Energy University - Formerly (PDPU)</i></h6>
+												
+												<p style="text-align:justify">Working on Machine Learning, Artificial Intelligence and NLP applications in healthcare, environment, finance, and petroleum industry.<br><br>
+													● Implemented machine learning model geothermal micro-seismic event classification and subsurface temperature prediction. <br><br>
+													● Performed Exploratory Data Analysis for Higher education trends for Gujarat, India.
+													● Performed data analysis and prediction of JSC, VOC, FF, and Efficiency (%) for organic photovoltaic cells. <br><br>
+													● Implemented machine learning models for efficiently predicting COVID-19 trend patterns.<br></p>
+												
+												
+												
+											</div>
+											
+											<div class="timeline-item">
+												<div class="circle-dot">
+												</div>
+												<h6 class="timeline-date">
+													
+													<i class="fa fa-calendar"></i>June 2021 – August 2021
+													
+												</h6>
+												
+												<h4 class="timeline-title">Machine Learning Engineer</h4>
+												
+												
+												<b class="timeline-text"></b>
+												
+												
+												<h6 class="timeline-text"><i>Omdena</i></h6>
+												<p style="text-align:justify">● Successfully collaborated to build healthcare solutions to predict cardiac arrest due to pulseless electrical activity and asystole employing machine learning for 'Transformative.ai' with AUC = 0.91 and accuracy = 97.05%. <br>
+												● Lead a group of 11 members to accomplish a sub-task. <br>
+												●Collaborated on an open-source to implement artificial intelligence techniques and satellite-image analysis to reduce freshwater wastage in Egypt.<br></p>
+												
+												
+											</div>
+											
+											<div class="timeline-item">
+												<div class="circle-dot">
+												</div>
+												<h6 class="timeline-date">
+													
+													<i class="fa fa-calendar"></i>June 2021 – August 2021
+													
+												</h6>
+												
+												<h4 class="timeline-title">Data Science & Business Analytics intern</h4>
+												
+												
+												<b class="timeline-text"></b>
+												
+												
+												<h6 class="timeline-text"><i>The Sparks Foundation</i></h6>
+												<p style="text-align:justify">● Completed tasks with efficiency ranging from peer-reviewing, data wrangling to modeling to learn the pipeline of machine learning projects: data collection, data cleaning, data visualization, modeling, and prediction.</p>
+												
+												
+											</div>
+											
+		
+											
+											<div class="timeline-item">
+												<div class="circle-dot">
+												</div>
+												<h6 class="timeline-date">
+													
+													<i class="fa fa-calendar"></i>July 2021 – September 2021
+													
+												</h6>
+												
+												<h4 class="timeline-title">Data Science Intern</h4>
+												
+												
+												<b class="timeline-text"></b>
+												
+												
+												<h6 class="timeline-text"><i>LetsGrowMore</i></h6>
+												
+												<p style="text-align:justify">● Successfully implemented several machine learning and NLP models for applications ranging from stock forecasting, next-word prediction, etc., to contribute to the organization.</p>
+												
+												
+											</div>
+											
+		
+											
+											<div class="timeline-item">
+												<div class="circle-dot">
+												</div>
+												<h6 class="timeline-date">
+													
+													<i class="fa fa-calendar"></i>January 2021 – August 2021
+													
+												</h6>
+												
+												<h4 class="timeline-title">Delegate</h4>
+												
+												
+												
+												<h6 class="timeline-text"><i>Harvard Project for Asian and International Relations (HPAIR)</i></h6>
+												
+												
+												<p style="text-align:justify">● Selected as one of the delegates from 60+countries for the HPAIR conference, which features world-class speakers and guests to foster mentorship, networking, and guidance opportunities for delegates.</p>
+												
+											</div>
+											
+		
+											
+											<div class="timeline-item">
+												<div class="circle-dot">
+												</div>
+												<h6 class="timeline-date">
+													
+													<i class="fa fa-calendar"></i>January 2019 – July 2019
+													
+												</h6>
+												
+												<h4 class="timeline-title">Data Science apprentice</h4>
+												
+												
+												<b class="timeline-text"></b>
+												
+												
+												<h6 class="timeline-text"><i>Persistent Systems</i></h6>
+												
+												
+												<p style="text-align:justify">● Improved and automated insurance claiming process with image preprocessing, OCR (PyTesseract), and entity extraction to successfully cover end-toend solutions and aspects of the online claim-reimbursement system with more than 96% accuracy</p>
+												
+											</div>
+											
+											
+										</div>
+									</div>
+									</div>
+						</div>
+						
+							</div>
+						</div>
+				</div>
+			</section>
+			<!--About-->
+			<!--Service-->
+			<section class="service section" id="project">
+				<div class="container">
+					<div class="row">
+						<div class="section-title padd-15">
+							<p><h2>Recent Projects</h2><br><a href="https://github.com/ameyark28/"><h4 style="color: white">GitHub</h4></a>
+						</div>
+					</div>
+					<div class="row">
+						
+						<div class="service-item padd-15">
+							<div class="service-item-inner">
+								<div class="icon">
+									<img src="https://s.wsj.net/public/resources/images/ON-DE793_201909_G_20190830121038.gif" width="300" height="200"/>
+								</div>
+								
+								<h4>Stock market prediction of BSE SENSEX using numerical and textual analysis</h4>
+								
+								
+								<p style="text-align:justify">Implemented five models (Random Forest, Decision Tree, AdaBoost, LightGBM and XGBoost) to compare the capability to forecast the stock market values of SENSEX (S&P BSE SENSEX) with consideration of sentiment analysis. And Random Forest Regressor outperformed other models.</p>
+								<br>
+								
+								
+								<a href="https://github.com/ameyark28/Stock-Market-Prediction-using-Numerical-and-Textual-Analysis"><button style="background:#34eb49; padding:3px; cursor:pointer;"><b>Source Code</b></button></a>
+								
+							</div>
+						</div>
+						
+						
+						
+						<div class="service-item padd-15">
+							<div class="service-item-inner">
+								<div class="icon">
+									<img src="https://media4.giphy.com/media/USmYpRDRtCXxXpS1xN/200w.gif?cid=82a1493bmp7tb0lku8k55iksz02fvo5303r9jvagp0zo4jx4&rid=200w.gif&ct=g" width="300" height="200"/>
+								</div>
+								
+								<h4>COVID-19 fake/misleading news identification</h4>
+								
+								
+								<p style="text-align:justify">Implemented NLP for COVID-19 fake news detection. Used tokenization and stopwords for preprocessing, followed by lemmatization for feature engineering followed by scaling with Tf-IDF. Employed several models where logistic regression outperformed other models.</p>
+								<br>
+								
+								<a href="https://github.com/ameyark28/Misinformation_Identification_-Fake_news_detection-"><button style="background:#34eb49; padding:2px; cursor:pointer;"><b>Source Code</b></button></a>
+								
+							</div>
+						</div>
+						
+		
+						
+						<div class="service-item padd-15">
+							<div class="service-item-inner">
+								<div class="icon">
+									<img src="https://miro.medium.com/max/800/1*x673p0JeRJYdzSeiCMXd3w.gif" width="300" height="200"/>
+								</div>
+								
+								<h4>CricFreak</h4>
+								
+								
+								<p style="text-align:justify">Performed web-scraping, data parsing, pre-processing, and EDA followed by implementing Multi-layer Perceptron Regressor to perform cricket score prediction and angular for the frontend of the web-based application.</p><br>
+								
+								
+							</div>
+						</div>
+						
+		
+						
+						<div class="service-item padd-15">
+							<div class="service-item-inner">
+								<div class="icon">
+									<img src="https://blankposter.com/wp-content/uploads/2019/04/Gyubin-Hur_Fake-2.gif" width="300" height="200"/>
+								</div>
+								
+								<h4>US election misinformation identification</h4>
+								
+								
+								<p style="text-align:justify">Performed NLP misinformation identification for the US election (November 8, 2016). Employed tokenization and stopwords for data cleaning, used word cloud for data visualization followed by feature engineering via lemmatization and scaled with Tf-IDF. Implement four models where logistic regression outperformed SVC, Passive-aggressive classifier and KNneighbours classifier.</p><br>
+								
+								
+								<a href="https://github.com/ameyark28/Stock-Market-Prediction-using-Numerical-and-Textual-Analysis"><button style="background:#34eb49; padding:2px; cursor:pointer;"><b>View Source/Live</b></button></a>
+								
+							</div>
+						</div>
+						
+		
+						
+						<div class="service-item padd-15">
+							<div class="service-item-inner">
+								<div class="icon">
+									<img src="https://www.cityofwebster.com/ImageRepository/Document?documentID=6436" width="300" height="200"/>
+								</div>
+								
+								<h4>Credit card fraud detection</h4>
+								
+								
+								<p style="text-align:justify">Employed Logistic Regression with random under-sampling to handle the situation of the imbalanced dataset for credit card fraud detection.<br></p>
+								
+								
+								<a href="https://colab.research.google.com/drive/16xyzkbiZfv-AE9-Xgl6xO1VS45d0DQLw?usp=sharing"><button style="background:#34eb49; padding:2px; cursor:pointer;"><b>View Source/Live</b></button></a>
+								
+							</div>
+						</div>
+						
+		
+						
+						<div class="service-item padd-15">
+							<div class="service-item-inner">
+								<div class="icon">
+									<img src="https://manometcurrent.com/wp-content/uploads/2021/06/Faster-Payment-Service-FPS.gif" width="300" height="200"/>
+								</div>
+								
+								<h4>Bucks bunny</h4>
+								
+								
+								<p style="text-align:justify">Developed an android application from scratch on the combined concept of WhatsApp and Splitwise. The idea was forming of groups on the application to split the money on the same. Android studio was used to develop the application</p><br>
+								
+								
+								<a href="https://github.com/ameyark28/Bucks-bunny/tree/master"><button style="background:#34eb49; padding:2px; cursor:pointer;"><b>View Source/Live</b></button></a>
+								
+							</div>
+						</div>
+						
+		
+					</div>
+					</div>
+			</section>
+			<!-- end Service-->
+			
+			<!--Blog Section-->
+			<section class="blog section" id="blog">
+				<div class="container">
+					
+					
+					
+					<div class="row">
+						<div class="section-title padd-15">
+							<h2>Research work/papers</h2>
+						</div>
+					</div>
+					<div class="row">
+						
+						<div class="blog-item padd-15">
+							<div class="blog-item-inner shadow-dark">
+								<div class="blog-img">
+									<img src="https://i.pinimg.com/originals/bd/7d/b0/bd7db0d8cece2fb49a719d606bf70be0.gif" alt="Paper">
+								</div>
+									<div class="blog-info">
+										<a href="https://doi.org/10.1016/j.ptlrs.2021.07.002"><p class="blog-description">Artificial intelligence: New age of transformation in petroleum upstream</p></a>
+									</div>
+								</div>
+							</div>
+							
+																	
+													
+							
+					</div>
+				</div>
+			</section>
+			<!--end blog-->
+			<!--Contact section-->
+			 <section class="contact section" id="contact">
+				<div class="container">
+					<div class="row">
+						<div class="section-title padd-15">
+							<h2>Contact Me</h2>
+						</div>
+					</div>
+					<div class="row">
+					<div class="contact-info-item padd-15">
+						<div class="icon"><i class="fa fa-phone"></i></div>
+						<h4>Contact me at</h4>
+						<p>:D</p>
+					</div>
+					<div class="contact-info-item padd-15">
+						<div class="icon"><i class="fa fa-map-marker"></i></div>
+						<h4>Address</h4>
+						<p>Mumbai</p>
+					</div>
+					<div class="contact-info-item padd-15">
+						<div class="icon"><i class="fa fa-envelope"></i></div>
+						<h4>Email</h4>
+						<p>ameyark28@gmail.com</p>
+					</div>
+				</div>
+		
+				<div class="row">
+					<div class="contacts padd-15">
+						<div class="social-links">
+							
+							<a href="https://www.linkedin.com/in/https://www.linkedin.com/in/ameya-kshirsagar" ><i class="fa fa-linkedin" ></i></a>
+							
+							
+							
+							<a href="https://github.com/https://github.com/ameyark28/" ><i class='fa fa-github' ></i></a>
+							
+							
+							 <a href="https://twitter.com/https://twitter.com/ameya_rk"><i class='fa fa-twitter'></i></a>
+							 
+							 
+							 <a href="https://www.instagram.com/https://www.instagram.com/ameya_kshirsagar/"><i class='fa fa-instagram'></i></a>
+							
+							 <a href="https://scholar.google.com/citations?user=17dvamEAAAAJ&hl=en"><i class='fa fa-googelscholar'></i></a>
+							 
+		
+							 
+							 
+							 
+							 
+							  
+						</div>
+					</div>
+		
+				</div>
+				
+			</section>
+			<!--end contact section-->
+		</div>
+		
+		</div>
+		<script type="">
+		
+			const nav=document.querySelector(".nav"),
+			navList=nav.querySelectorAll("li"),
+			totalNavList=navList.length,
+			allSection=document.querySelectorAll(".section"),
+			totalSection=allSection.length;
+				for (let i = 0; i < totalNavList; i++) {
+					const a=navList[i].querySelector("a");
+					a.addEventListener("click",function (){
+						removeBackSectionClass();
+						
+					for(let j=0;j<totalNavList;j++){
+						if (navList[j].querySelector("a").classList.contains("active")) {
+						addBackSectionClass(j);
+						//allSection[j].classList.add("back-setion");	
+						}
+						  navList[j].querySelector("a").classList.remove("active");
+					  }
+					  this.classList.add("active");
+					  showSection(this);
+					  if(window.innerWidth<1200) {
+						  asideSectionTogglerBtn();
+					  }
+				  })
+				} 
+				function removeBackSectionClass(){
+				for(let i=0;i<totalSection;i++){
+						  allSection[i].classList.remove("back-section");
+					  }
+				} 
+				function addBackSectionClass(num){
+					allSection[num].classList.add("back-section");
+				}
+				function showSection(element){
+					 for(let i=0;i<totalSection;i++){
+						  allSection[i].classList.remove("active");
+					  }
+					  const target=element.getAttribute("href").split("#")[1];
+					 
+					  document.querySelector("#"+target).classList.add("active")
+				  }
+					  function updateNav(element){
+						  for(let i=0;i<totalNavList;i++){
+						  navList[i].querySelector("a").classList.remove("active");
+						  const target=element.getAttribute("href").split("#")[1];	
+						  if (target==navList[i].querySelector("a").getAttribute("href").split("#")[1]) {
+							  navList[i].querySelector("a").classList.add("active");
+						  }
+					   }
+					  }
+		
+					  document.querySelector(".hire-me").addEventListener("click",function(){
+						  const sectionIndex=this.getAttribute("data-section-index");
+						  showSection(this);
+						  updateNav(this);
+						  removeBackSectionClass();
+						  addBackSectionClass(sectionIndex);
+					  })
+					  
+				
+				const navTogglerBtn=document.querySelector(".nav-toggler"),
+					  aside=document.querySelector(".aside");
+		
+				navTogglerBtn.addEventListener("click",asideSectionTogglerBtn)
+				
+		   
+				function asideSectionTogglerBtn(){
+					aside.classList.toggle("open");
+					navTogglerBtn.classList.toggle("open");
+					for(let i=0;i<totalSection;i++){
+						  allSection[i].classList.toggle("open");
+					  }
+				}
+		
+		</script>
+		<script>
+			var typeString=JSON.parse('["Machine Learning Enthusiast", "Researcher", "Python Developer"]');
+			var i=0;
+			var count=0;
+			var selectedText="";
+			var text="";
+			(function type() {
+				if (count==typeString.length) {
+					count=0;
+				}
+				selectedText=typeString[count];
+				text=selectedText.slice(0,++i);
+				document.querySelector('#typing').innerHTML=text;
+				document.querySelector('#typing').style.color="red";
+				document.querySelector('#typing').style.fontFamily="Aldrich";
+				document.querySelector('#typing').style.fontSize="xx-large";
+		
+				if (text.length===selectedText.length) {
+					count++;
+					i=0;
+				}
+			
+				setTimeout(type,200);
+			}());
+			function sleep(milliseconds) {
+				var start=new Date().getTime();
+				for (let i = 0; i < 1e7; i++) {
+					if ((new Date().getTime)-start)  milliseconds 
+						break;
+					}
+					
+				}
+		
+		</script>
+		</body>
+		</html>
